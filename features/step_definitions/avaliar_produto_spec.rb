@@ -1,11 +1,11 @@
 Dado('que estou logado') do
     visit "/"
     click_on "Sign in"
-    @compra.login_with("tiagoteste@hotmail.com", "senha1234*")
+    login_with("tiagoteste@hotmail.com", "senha1234*")
 end
   
 Dado('que selecionei o {string}') do |produto|
-    @compra.selecionar_produto(produto)
+    selecionar_produto(produto)
 end
   
 Quando('eu dou a nota {string} estrelas') do |estrelas|

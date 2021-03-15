@@ -1,5 +1,4 @@
 #language: pt
-@compra
 @avaliar
 Funcionalidade: Avaliar produtos
     Sendo um usuário do site que adquiriu produtos
@@ -11,7 +10,7 @@ Funcionalidade: Avaliar produtos
         E que estou na pagina inicial
 
     Esquema do Cenario: Avaliar produtos
-        Dado que selecionei o "<produto>"
+        E que selecionei o "<produto>"
         Quando eu dou a nota "<nota>" estrelas
             E escrevo minha avaliacao com "<titulo>" e "<conteudo>"
         Entao devo ver uma mensagem informando que a avaliacao foi feita com sucesso

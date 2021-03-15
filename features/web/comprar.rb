@@ -1,15 +1,6 @@
 class Comprar
     include Capybara::DSL
-
-    def login_with(email, senha)
-        find("#email").set email
-        find("#passwd").set senha
-        find("#SubmitLogin").click
-    end
-
-    def selecionar_produto(produto)
-        find("a[class='product-name']", text: produto).click
-    end
+    include Helpers
 
     def pagar_com_cheque
         find(".cheque").click
@@ -23,18 +14,9 @@ class Comprar
         find("textarea.form-control").set comentario
     end
 
-    def adicionar_produtos_no_carrinho(produtos)
-        for indice in 0..produtos.size-1 do
-            selecionar_produto(produtos[indice])
-            find("#add_to_cart > button").click
-            if indice != produtos.size-1
-                continuar_comprando
-                find("a.home").click
-            else
-                prosseguir_com_compra
-            end
-        end
-        
+    def adicionar_produto_no_carrinho(produto)
+        selecionar_produto(produto)
+        find("#add_to_cart > button").click
     end
 
     def prosseguir_com_compra
@@ -43,5 +25,6 @@ class Comprar
 
     def continuar_comprando
         find("span[title='Continue shopping']").click
+        find("a.home").click
     end
 end

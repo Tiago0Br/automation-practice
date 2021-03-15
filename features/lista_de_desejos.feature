@@ -1,5 +1,4 @@
 #language: pt
-@compra
 @lista_desejos
 Funcionalidade: Possibilitar adicionar produtos em minha lista de desejos e gerenciar várias listas
     Sendo um usuário do site
@@ -18,4 +17,12 @@ Funcionalidade: Possibilitar adicionar produtos em minha lista de desejos e gere
             | Vamos ver né |
             | Outro teste  |
 
-    Cenario: Adicionar produtos na lista de desejos
+    @adicionar_produto
+    Cenario: Adicionando um produto na lista de desejos
+            E que estou na pagina inicial
+            E que selecionei o "<produto>"
+        Quando eu adiciono na lista de desejos
+        Entao ao acessar a lista de desejos, o "<produto>" devera aparecer
+        Exemplos:
+            | produto |
+            | Blouse  |

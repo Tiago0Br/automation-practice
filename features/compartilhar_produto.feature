@@ -1,5 +1,4 @@
 #language: pt
-@compra
 @compartilhar
 Funcionalidade: Compartilhar o produto por email
     Sendo um usuário do site

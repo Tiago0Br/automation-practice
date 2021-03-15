@@ -1,5 +1,5 @@
 #language: pt
-@compra
+@comprar
 Funcionalidade: Realizar compras de produtos
     Sendo um usuário cadastrado
     Quero poder comprar produtos do site
@@ -12,7 +12,7 @@ Funcionalidade: Realizar compras de produtos
         Quando eu adiciono o produto "<produto>" no carrinho
             E faco login
             E seleciono a forma de pagamento igual a cheque
-        Entao devo ver uma mensagem de alerta afirmando que a compra foi efetuada com sucesso
+        Entao devo ver uma mensagem afirmando que a compra por cheque foi efetuada com sucesso
         Exemplos:
             | produto                     |
             | Faded Short Sleeve T-shirts |
@@ -22,27 +22,28 @@ Funcionalidade: Realizar compras de produtos
         Quando eu adiciono o produto "<produto>" no carrinho
             E faco login
             E seleciono a forma de pagamento igual a transferencia bancaria
-        Entao devo ver uma mensagem afirmando que a compra foi efetuada com sucesso
+        Entao devo ver uma mensagem afirmando que a compra por transferencia foi efetuada com sucesso
         Exemplos:
             | produto |
             | Blouse  |
 
     @compra_varios
     Cenario: Efetuar a compra de varios produtos
-        Quando eu adiciono no carrinho os produtos "<produto1>", "<produto2>", "<produto3>"
+        Quando eu adiciono no carrinho os produtos:
+            | descricao                   |
+            | Blouse                      |
+            | Faded Short Sleeve T-shirts |
+            | Printed Chiffon Dress       |
             E faco login
             E seleciono a forma de pagamento igual a transferencia bancaria
-        Entao devo ver uma mensagem afirmando que a compra foi efetuada com sucesso
-        Exemplos:
-            | produto1 | produto2                    | produto3              |
-            | Blouse   | Faded Short Sleeve T-shirts | Printed Chiffon Dress |
+        Entao devo ver uma mensagem afirmando que a compra por transferencia foi efetuada com sucesso
 
     @compra_unidades
     Cenario: Efetuar a compra de várias unidades do mesmo produto
         Quando eu adiciono no carrinho "<unidades>" do "<produto>"
             E faco login
             E seleciono a forma de pagamento igual a cheque
-        Entao devo ver uma mensagem de alerta afirmando que a compra foi efetuada com sucesso
+        Entao devo ver uma mensagem afirmando que a compra por cheque foi efetuada com sucesso
         Exemplos:
             | unidades | produto               |
             | 5        | Printed Chiffon Dress |

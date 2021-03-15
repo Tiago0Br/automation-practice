@@ -13,7 +13,7 @@ Funcionalidade: Possibilitar pesquisar produtos na loja
         Entao devo ver os produtos relacionados ao "<produto>"
         Exemplos:
             | produto |
-            | blóuse  |
+            | blouse  |
             | shirts  |
             | printed |
 
