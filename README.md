@@ -29,8 +29,10 @@ Praticando automação de Testes Web na linguagem Ruby, utilizando Cucumber, Cap
 
 ### Dentro do arquivo adicionar seu login e senha do site conforme o exemplo:
 
-`login: "exemplo@teste.com"`
-`password: "senha1234"`
+```
+login: "exemplo@teste.com"
+password: "senha1234"
+```
 
 ### Executar os testes
 
