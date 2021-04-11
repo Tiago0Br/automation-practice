@@ -15,6 +15,23 @@ Praticando automação de Testes Web na linguagem Ruby, utilizando Cucumber, Cap
 
 `bundle install`
 
+### Acessar a pasta "support"
+
+`cd features/support/`
+
+### Criar pasta "config"
+
+`mkdir config`
+
+### Criar arquivo "login.yaml"
+
+`touch login.yaml` ou `echo >> login.yaml`
+
+### Dentro do arquivo adicionar seu login e senha do site conforme o exemplo:
+
+`login: "exemplo@teste.com"`
+`password: "senha1234"`
+
 ### Executar os testes
 
 `cucumber`
