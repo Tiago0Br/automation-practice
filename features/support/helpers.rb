@@ -5,8 +5,4 @@ module Helpers
 
         find("#SubmitLogin").click
     end
-
-    def selecionar_produto(produto)
-        find("a[class='product-name']", text: produto).click
-    end
 end
