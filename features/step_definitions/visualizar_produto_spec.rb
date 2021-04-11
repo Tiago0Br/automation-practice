@@ -1,5 +1,6 @@
 Dado('que estou na pagina inicial') do
     visit "/index.php"
+    @listagemProdutos = ListagemProdutos.new
 end
   
 Quando('eu clico no produto {string}') do |produto|

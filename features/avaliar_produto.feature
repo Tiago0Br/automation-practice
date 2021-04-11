@@ -1,13 +1,13 @@
 #language: pt
 @avaliar
+@login
 Funcionalidade: Avaliar produtos
     Sendo um usuário do site que adquiriu produtos
     Quero poder avaliá-los
     Para que eu possa compartilhar minha opinião sobre o produto
 
     Contexto:
-        Dado que estou logado
-        E que estou na pagina inicial
+        Dado que estou na pagina inicial
 
     Esquema do Cenario: Avaliar produtos
         E que selecionei o "<produto>"
