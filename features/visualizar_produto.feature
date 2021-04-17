@@ -1,4 +1,5 @@
 #language: pt
+@visualizar_produtos
 Funcionalidade: Visualizar produtos
     Sendo um usuário do site
     Quero poder clicar sobre o produto
@@ -11,6 +12,7 @@ Funcionalidade: Visualizar produtos
         Quando eu clico no produto "<produto>"
         Entao devo visualizar o "<produto>" com mais detalhes
         Exemplos:
-            | produto               |
-            | Blouse                |
-            | Printed Chiffon Dress |
+            | produto                     |
+            | Blouse                      |
+            | Printed Chiffon Dress       |
+            | Faded Short Sleeve T-shirts |
