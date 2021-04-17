@@ -10,7 +10,8 @@ Funcionalidade: Compartilhar o produto por email
 
     Esquema do Cenario: Compartilhando por email
         Dado que selecionei o "<produto>"
-        Quando eu clico na opcao de enviar a um amigo, preencho os campos com "<nome>" e "<email>" e envio
+        Quando eu clico na opcao de enviar a um amigo
+        E preencho os campos com "<nome>" e "<email>"
         Entao o produto deve ser compartilhado com sucesso
         Exemplos:
             | produto               | nome        | email                       |

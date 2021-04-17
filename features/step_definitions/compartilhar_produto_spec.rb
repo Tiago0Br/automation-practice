@@ -1,12 +1,12 @@
-Quando('eu clico na opcao de enviar a um amigo, preencho os campos com {string} e {string} e envio') do |nome, email|
-    click_on "Send to a friend"
-    fill_in(id: "friend_name", with: nome)
-    fill_in(id: "friend_email", with: email)
-    click_on("Send")
+Quando('eu clico na opcao de enviar a um amigo') do
+    @listagemProdutos.compartilhar.abrir
+end
+
+Quando('preencho os campos com {string} e {string}') do |nome, email|
+    @listagemProdutos.compartilhar.adicionar_amigo(nome, email)
 end
 
 Entao('o produto deve ser compartilhado com sucesso') do
-    msg = find(".fancybox-skin h2 + p").text
-    expect(msg).to include "Your e-mail has been sent successfully"
-    find(".fancybox-inner p .button").click
+    expect(@listagemProdutos.compartilhar.msg_sucesso).to include "Your e-mail has been sent successfully"
+    @listagemProdutos.compartilhar.fechar_alerta
 end
