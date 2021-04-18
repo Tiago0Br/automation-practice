@@ -17,6 +17,10 @@ After do |scenario|
     end
 end
 
+After('@lista_desejos') do
+    @minha_conta.lista_de_desejos.excluir(@nome)
+end
+
 Before('@comprar') do
     @compra = Comprar.new
 end
