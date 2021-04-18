@@ -1,41 +1,34 @@
 Dado('que estou na pagina de listas de desejos') do
-    find(".lnk_wishlist a").click
+    @minha_conta = MinhaConta.new
+    @minha_conta.lista_de_desejos.acessar_lista
 end
   
 Quando('eu crio uma nova lista com o nome {string}') do |nome|
     @nome = nome
-    fill_in(id: "name", with: nome)
-    click_on "Save"
+    @minha_conta.lista_de_desejos.adicionar_lista(@nome)
 end
   
 Entao('a lista deve ser criada com sucesso') do
-    coluna_nome = all("tbody tr td:first-child a")
-    listas = []
-    coluna_nome.each do |nome|
-        listas.push(nome.text)
-    end
-    expect(listas.include?(@nome)).to be true
-    indice = listas.index(@nome)
-    botao_excluir = all("table tr td:last-child a")[indice]
-    botao_excluir.click
-    page.accept_confirm
+    expect(@minha_conta.lista_de_desejos.nomes.include?(@nome)).to be true
 end
 
 Quando('eu adiciono na lista de desejos') do
-    click_on "Add to wishlist"
+    @listagemProdutos.adicionar_na_lista_de_desejos
+    expect(@listagemProdutos.msg_adicionado_na_lista).to include "Added to your wishlist."
+    @nome = "My wishlist"
 end
 
-Entao('ao acessar a lista de desejos, o {string} devera aparecer') do |produto|
-    msg = find("p.fancybox-error").text
-    expect(msg).to include "Added to your wishlist."
-    find("a.fancybox-close").click
+Quando('acesso a pagina de listas de desejos') do
     visit "/"
-    find("a.account").click
-    find(".lnk_wishlist a").click
-    find("tbody tr td:first-child a", text: "My wishlist").click
-    product_name = find("#s_title").text
-    expect(product_name).to include produto
-    botao_excluir = all("table tr td:last-child a")[-1]
-    botao_excluir.click
-    page.accept_confirm
+    @minha_conta = MinhaConta.new
+    @minha_conta.acessar
+    @minha_conta.lista_de_desejos.acessar_lista
+end
+
+Quando('seleciono a lista criada') do
+    @minha_conta.lista_de_desejos.visualizar_lista("My wishlist")
+end
+
+Entao('o {string} adicionado devera aparecer') do |produto|
+    expect(@minha_conta.lista_de_desejos.nome_do_produto).to include produto
 end
