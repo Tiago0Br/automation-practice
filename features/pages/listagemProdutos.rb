@@ -28,4 +28,12 @@ class ListagemProdutos
     def msg_produto_nao_encontrado
         find("#center_column p.alert").text
     end
+
+    def adicionar_na_lista_de_desejos
+        click_on "Add to wishlist"
+    end
+
+    def msg_adicionado_na_lista
+        find("p.fancybox-error").text
+    end
 end
